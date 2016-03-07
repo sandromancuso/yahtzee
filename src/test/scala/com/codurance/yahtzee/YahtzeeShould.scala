@@ -26,7 +26,7 @@ class YahtzeeShould extends UnitSpec {
 	"print score" in new context {
 		initialiseYahtzeeWith(ones_category)
 
-		verify(score) print()
+		verify(score) print(console)
 	}
 
 	trait context {

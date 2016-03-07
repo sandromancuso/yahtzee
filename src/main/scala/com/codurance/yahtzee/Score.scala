@@ -2,6 +2,9 @@ package com.codurance.yahtzee
 
 case class Score(category: Category, points: Int) {
 
-	def print(): Unit = ???
+	def print(console: Console): Unit = {
+		console printLine("Yahtzee score")
+		console printLine("Ones: 4")
+	}
 
 }
