@@ -3,7 +3,6 @@ package com.codurance.yahtzee
 import com.codurance.UnitSpec
 import org.junit.runner.RunWith
 import org.mockito.BDDMockito.given
-import org.mockito.Mockito
 import org.mockito.Mockito.verify
 import org.scalatest.junit.JUnitRunner
 

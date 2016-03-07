@@ -13,7 +13,7 @@ class Turn(dice: Dice, console: Console) {
 		rollResult = dice roll()
 		console printLine(s"Dice: ${rollResult}")
 
-		Score(category, 2)
+		Score(category, category.pointsFor(rollResult))
 	}
 
 }

@@ -4,7 +4,6 @@ import com.codurance.UnitSpec
 import com.codurance.yahtzee._
 import org.mockito.BDDMockito.given
 import org.mockito.Mockito
-import org.mockito.Mockito.{times, verify}
 
 class SinglePlayerPlaysOneCategory extends UnitSpec {
 
