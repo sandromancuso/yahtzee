@@ -4,7 +4,6 @@ import com.codurance.UnitSpec
 import org.junit.runner.RunWith
 import org.mockito.BDDMockito.given
 import org.mockito.Mockito
-import org.mockito.Mockito.verify
 import org.scalatest.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
@@ -18,7 +17,7 @@ class TurnShould extends UnitSpec {
 	}
 
 	"Runs a full turn with two dice re-run" in new context {
-		given(dice roll()) willReturn(
+		given(dice rollAll()) willReturn(
 				"D1:2 D2:4 D3:1 D4:6 D5:1",
 				"D1:1 D2:5 D3:1 D4:2 D5:1",
 				"D1:1 D2:1 D3:1 D4:5 D5:1")
@@ -34,7 +33,7 @@ class TurnShould extends UnitSpec {
 	}
 
 	"return the score of that turn" in new context {
-		given(dice roll()) willReturn("D1:2 D2:4 D3:1 D4:6 D5:1")
+		given(dice rollAll()) willReturn("D1:2 D2:4 D3:1 D4:6 D5:1")
 
 		val score = turn start(category)
 

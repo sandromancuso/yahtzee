@@ -11,8 +11,8 @@ class DiceShould extends UnitSpec {
 
 		val dice = new Dice(randomDieValue)
 
-		dice.roll should be("D1:2 D2:4 D3:1 D4:6 D5:1")
-		dice.roll should be("D1:1 D2:6 D3:2 D4:5 D5:3")
+		dice.rollAll should be("D1:2 D2:4 D3:1 D4:6 D5:1")
+		dice.rollAll should be("D1:1 D2:6 D3:2 D4:5 D5:3")
 	}
 
 }
