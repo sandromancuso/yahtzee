@@ -13,19 +13,19 @@ The game should support 3 categories (ones, twos, and threes). Player needs to g
 The player will play categories in turn.
  
 	> Category: Ones
-	> Dices: D1:2 D2:4 D3:1 D4:6 D5:1
-	> Dices to re-run: D1 D2 D4
-	> Dices: D1:1 D2:5 D3:1 D4:2 D5:1 
-	> Dices to re-run: D2 D4
-	> Dices: D1:1 D2:1 D3:1 D4:5 D5:1
+	> Dice: D1:2 D2:4 D3:1 D4:6 D5:1
+	> Dice to re-run: D1 D2 D4
+	> Dice: D1:1 D2:5 D3:1 D4:2 D5:1 
+	> Dice to re-run: D2 D4
+	> Dice: D1:1 D2:1 D3:1 D4:5 D5:1
 	> Category Ones score: 4
  	 
 	> Category: Twos
-	> Dices: D1:2 D2:4 D3:1 D4:6 D5:1
+	> Dice: D1:2 D2:4 D3:1 D4:6 D5:1
 	> ....
  	
 	> Category: Threes
-	> Dices: D1:2 D2:4 D3:1 D4:6 D5:1
+	> Dice: D1:2 D2:4 D3:1 D4:6 D5:1
 	> ....
  	
 	> Yahtzee score

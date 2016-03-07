@@ -1,7 +1,13 @@
 package com.codurance.yahtzee
 
-class Turn {
+class Turn(dice: Dice, console: Console) {
 
-	def start(): Score = ???
+	def start(): Score = {
+		val rollResult = dice roll()
+
+		console printLine(s"Dice: ${rollResult}")
+
+		null
+	}
 
 }
