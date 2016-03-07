@@ -1,6 +1,6 @@
 package com.codurance
 
-import com.codurance.yahtzee.{Turn, Category, Console, Yahtzee}
+import com.codurance.yahtzee._
 import org.junit.runner.RunWith
 import org.mockito.Mockito.verify
 import org.scalatest.junit.JUnitRunner
@@ -22,15 +22,22 @@ class YahtzeeShould extends UnitSpec {
 		verify(turn) start()
 	}
 
+	"print score" in new context {
+		initialiseYahtzeeWith(Category("Ones"))
+
+		verify(score) print()
+	}
+
 	trait context {
+		val score = mock[Score]
 		val console = mock[Console]
 		val turn = mock[Turn]
 		val ones_category = new Category("Ones")
 
-		var yahtzee = new Yahtzee(ones_category, turn, console)
+		var yahtzee: Yahtzee = new Yahtzee(ones_category, score, turn, console)
 
 		def initialiseYahtzeeWith(category: Category) = {
-			yahtzee = new Yahtzee(category, turn, console)
+			yahtzee = new Yahtzee(category, score, turn, console)
 			yahtzee startGame()
 		}
 
