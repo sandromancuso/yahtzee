@@ -2,6 +2,7 @@ package com.codurance.yahtzee
 
 import com.codurance.UnitSpec
 import org.junit.runner.RunWith
+import org.mockito.BDDMockito.given
 import org.mockito.Mockito.verify
 import org.scalatest.junit.JUnitRunner
 
@@ -34,10 +35,12 @@ class YahtzeeShould extends UnitSpec {
 		val turn = mock[Turn]
 		val ones_category = new Category("Ones")
 
-		var yahtzee: Yahtzee = new Yahtzee(ones_category, score, turn, console)
+		var yahtzee: Yahtzee = new Yahtzee(ones_category, turn, console)
 
 		def initialiseYahtzeeWith(category: Category) = {
-			yahtzee = new Yahtzee(category, score, turn, console)
+			given(turn start()) willReturn(score)
+			yahtzee = new Yahtzee(category, turn, console)
+
 			yahtzee startGame()
 		}
 

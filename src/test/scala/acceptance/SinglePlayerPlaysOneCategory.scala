@@ -10,14 +10,13 @@ class SinglePlayerPlaysOneCategory extends UnitSpec {
 	"single player plays one category" in {
 		val console = mock[Console]
 		val one_category = Category("Ones")
-		val score = new Score
 		val turn = new Turn
 
 		given(console read("Dices to re-run: ")) willReturn(
 				"D1 D2 D4",
 				"D2 D4")
 
-		val yahtzee = new Yahtzee(one_category, score, turn, console)
+		val yahtzee = new Yahtzee(one_category, turn, console)
 
 		yahtzee startGame()
 
@@ -32,7 +31,6 @@ class SinglePlayerPlaysOneCategory extends UnitSpec {
 		verify(console) printLine("Yahtzee score")
 		verify(console) printLine("Ones: 4")
 		verify(console) printLine("Final score: 4")
-
 	}
 
 
