@@ -6,7 +6,7 @@ class Yahtzee(category: Category,
 
 	def startGame(): Unit = {
 		console.printLine(s"Category: ${category.name}")
-		val score = turn start()
+		val score = turn start(category)
 		score print()
 	}
 
