@@ -3,7 +3,8 @@ package acceptance
 import com.codurance.UnitSpec
 import com.codurance.yahtzee._
 import org.mockito.BDDMockito.given
-import org.mockito.Mockito.verify
+import org.mockito.Mockito
+import org.mockito.Mockito.{times, verify}
 
 class SinglePlayerPlaysOneCategory extends UnitSpec {
 
@@ -26,17 +27,17 @@ class SinglePlayerPlaysOneCategory extends UnitSpec {
 
 		yahtzee startGame()
 
-		verify(console) printLine("Category: Ones")
-		verify(console) printLine("Dice: D1:2 D2:4 D3:1 D4:6 D5:1")
-		verify(console) read("Dice to re-run: ")
-		verify(console) printLine("Dice: D1:1 D2:5 D3:1 D4:2 D5:1")
-		verify(console) read("Dice to re-run: ")
-		verify(console) printLine("Dice: D1:1 D2:1 D3:1 D4:5 D5:1")
-		verify(console) printLine("Category Ones score: 4")
+		val inOrder = Mockito.inOrder(console)
+		inOrder.verify(console) printLine("Category: Ones")
+		inOrder.verify(console) printLine("Dice: D1:2 D2:4 D3:1 D4:6 D5:1")
+		inOrder.verify(console) read("[1] Dice to re-run: ")
+		inOrder.verify(console) printLine("Dice: D1:1 D2:5 D3:1 D4:2 D5:1")
+		inOrder.verify(console) read("[2] Dice to re-run: ")
+		inOrder.verify(console) printLine("Dice: D1:1 D2:1 D3:1 D4:5 D5:1")
 
-		verify(console) printLine("Yahtzee score")
-		verify(console) printLine("Ones: 4")
-		verify(console) printLine("Final score: 4")
+		inOrder.verify(console) printLine("Yahtzee score")
+		inOrder.verify(console) printLine("Ones: 4")
+		inOrder.verify(console) printLine("Final score: 4")
 	}
 
 

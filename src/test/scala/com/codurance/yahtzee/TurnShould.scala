@@ -27,9 +27,9 @@ class TurnShould extends UnitSpec {
 
 		val inOrder = Mockito.inOrder(console)
 		inOrder.verify(console) printLine("Dice: D1:2 D2:4 D3:1 D4:6 D5:1")
-		inOrder.verify(console) read("Dice to re-run: ")
+		inOrder.verify(console) read("[1] Dice to re-run: ")
 		inOrder.verify(console) printLine("Dice: D1:1 D2:5 D3:1 D4:2 D5:1")
-		inOrder.verify(console) read("Dice to re-run: ")
+		inOrder.verify(console) read("[2] Dice to re-run: ")
 		inOrder.verify(console) printLine("Dice: D1:1 D2:1 D3:1 D4:5 D5:1")
 	}
 

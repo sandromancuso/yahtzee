@@ -6,10 +6,10 @@ class Turn(dice: Dice, console: Console) {
 		var rollResult = dice roll()
 
 		console printLine(s"Dice: ${rollResult}")
-		console read("Dice to re-run: ")
+		console read("[1] Dice to re-run: ")
 		rollResult = dice roll()
 		console printLine(s"Dice: ${rollResult}")
-		console read("Dice to re-run: ")
+		console read("[2] Dice to re-run: ")
 		rollResult = dice roll()
 		console printLine(s"Dice: ${rollResult}")
 
