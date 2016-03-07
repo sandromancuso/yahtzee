@@ -8,6 +8,7 @@ class Yahtzee(category: Category,
 		console.printLine(s"Category: ${category.name}")
 		val score = turn start(category)
 		score print(console)
+		console.printLine(s"Final score: ${score.points}")
 	}
 
 }

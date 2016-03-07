@@ -3,6 +3,7 @@ package com.codurance.yahtzee
 import com.codurance.UnitSpec
 import org.junit.runner.RunWith
 import org.mockito.BDDMockito.given
+import org.mockito.Mockito
 import org.mockito.Mockito.verify
 import org.scalatest.junit.JUnitRunner
 
@@ -24,9 +25,12 @@ class YahtzeeShould extends UnitSpec {
 	}
 
 	"print score" in new context {
+		given(score.points) willReturn (4)
+
 		initialiseYahtzeeWith(ones_category)
 
 		verify(score) print(console)
+		verify(console) printLine(s"Final score: 4")
 	}
 
 	trait context {
