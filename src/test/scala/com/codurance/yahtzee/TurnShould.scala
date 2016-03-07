@@ -29,7 +29,7 @@ class TurnShould extends UnitSpec {
 
 		val score = turn start(category)
 
-		score should be(Score(2))
+		score should be(Score(category, 2))
 	}
 
 }

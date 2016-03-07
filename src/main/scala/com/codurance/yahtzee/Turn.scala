@@ -7,7 +7,7 @@ class Turn(dice: Dice, console: Console) {
 
 		console printLine(s"Dice: ${rollResult}")
 
-		Score(2)
+		Score(category, 2)
 	}
 
 }
