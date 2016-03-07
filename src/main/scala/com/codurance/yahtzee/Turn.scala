@@ -6,6 +6,7 @@ class Turn(dice: Dice, console: Console) {
 		val rollResult = dice roll()
 
 		console printLine(s"Dice: ${rollResult}")
+		console read("Dice to re-run: ")
 
 		Score(category, 2)
 	}
