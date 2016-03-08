@@ -30,3 +30,12 @@ case object TwosCategory extends Category {
 				.sum
 }
 
+case object ThreesCategory extends Category {
+	override def name: String = "Threes"
+
+	override def pointsFor(diceValues: List[Int]): Int =
+		diceValues
+				.map(n => if (n == 3) n else 0)
+				.sum
+}
+
