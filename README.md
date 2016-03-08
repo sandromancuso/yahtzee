@@ -10,7 +10,7 @@ Build a playable console [Yahtzee](https://en.wikipedia.org/wiki/Yahtzee) applic
 The game should support 3 categories (Ones, Twos, and Threes). Player needs to roll the biggest number of 1s, 2s, and 3s
  for each category respectively.
 
-The player will play categories in turn.
+The player will play categories in turn. The following is what you should see if you run the application:
  
 	> Category: Ones
 	> Dices: D1:2 D2:4 D3:1 D4:6 D5:1
