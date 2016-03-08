@@ -12,7 +12,9 @@ class SinglePlayerPlaysOneCategory extends UnitSpec {
 		val randomDieValue = mock[RandomDieValue]
 		val dice = new Dice(randomDieValue)
 		val one_category = Category("Ones")
+		val scoreCard = ScoreCard(List(one_category))
 		val turn = new Turn(dice, console)
+		val yahtzee = new Yahtzee(scoreCard, turn, console)
 
 		given(randomDieValue next()) willReturn(
 				2, 4, 1, 6, 1,
@@ -22,7 +24,6 @@ class SinglePlayerPlaysOneCategory extends UnitSpec {
 		given(console read "[1] Dice to re-run: ") willReturn "D1 D2 D4"
 		given(console read "[2] Dice to re-run: ") willReturn "D2 D4"
 
-		val yahtzee = new Yahtzee(List(one_category), turn, console)
 
 		yahtzee startGame()
 
@@ -45,7 +46,9 @@ class SinglePlayerPlaysOneCategory extends UnitSpec {
 		val dice = new Dice(randomDieValue)
 		val ones_category = Category("Ones")
 		val twos_category = Category("Twos")
+		val scoreCard: ScoreCard = ScoreCard(List(ones_category, twos_category))
 		val turn = new Turn(dice, console)
+		val yahtzee = new Yahtzee(scoreCard, turn, console)
 
 		given(randomDieValue next()) willReturn(
 				2, 4, 1, 6, 1,
@@ -59,7 +62,6 @@ class SinglePlayerPlaysOneCategory extends UnitSpec {
 		given(console read "[1] Dice to re-run: ") willReturn ("D1 D2 D4", "D2 D3 D4 D5")
 		given(console read "[2] Dice to re-run: ") willReturn ("D2 D4", "D2 D5")
 
-		val yahtzee = new Yahtzee(List(ones_category, twos_category), turn, console)
 
 		yahtzee startGame()
 
