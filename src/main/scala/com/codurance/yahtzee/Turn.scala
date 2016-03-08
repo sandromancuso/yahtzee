@@ -12,9 +12,11 @@ class Turn(dice: Dice, console: Console) {
 	}
 
 	private def firstReRoll(currentResult: String): String = {
-		val dice_to_reroll = console read "[1] Dice to re-run: "
-		if ("" != dice_to_reroll)
-			secondReRoll(rerollDice(dice_to_reroll))
+		val dice_to_re_roll = console read "[1] Dice to re-run: "
+		if ("" != dice_to_re_roll) {
+			val rollResult = rerollDice(dice_to_re_roll)
+			secondReRoll(rollResult)
+		}
 		else currentResult
 	}
 
