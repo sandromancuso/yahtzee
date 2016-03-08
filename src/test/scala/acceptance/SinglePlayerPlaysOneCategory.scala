@@ -11,8 +11,7 @@ class SinglePlayerPlaysOneCategory extends UnitSpec {
 		val console = mock[Console]
 		val randomDieValue = mock[RandomDieValue]
 		val dice = new Dice(randomDieValue)
-		val one_category = Category("Ones")
-		val scoreCard = ScoreCard(List(one_category))
+		val scoreCard = ScoreCard(List(OnesCategory))
 		val turn = new Turn(dice, console)
 		val yahtzee = new Yahtzee(scoreCard, turn, console)
 
@@ -44,9 +43,7 @@ class SinglePlayerPlaysOneCategory extends UnitSpec {
 		val console = mock[Console]
 		val randomDieValue = mock[RandomDieValue]
 		val dice = new Dice(randomDieValue)
-		val ones_category = Category("Ones")
-		val twos_category = Category("Twos")
-		val scoreCard: ScoreCard = ScoreCard(List(ones_category, twos_category))
+		val scoreCard: ScoreCard = ScoreCard(List(OnesCategory, TwosCategory))
 		val turn = new Turn(dice, console)
 		val yahtzee = new Yahtzee(scoreCard, turn, console)
 

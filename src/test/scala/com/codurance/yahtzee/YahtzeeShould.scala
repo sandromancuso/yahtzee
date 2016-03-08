@@ -10,23 +10,23 @@ import org.scalatest.junit.JUnitRunner
 class YahtzeeShould extends UnitSpec {
 
 	"print name of the category passed as parameter" in new context {
-		initialiseYahtzeeWith(ones_category)
+		initialiseYahtzeeWith(OnesCategory)
 		verifyCategoryNameWasPrinted("Ones")
 
-		initialiseYahtzeeWith(twos_category)
+		initialiseYahtzeeWith(TwosCategory)
 		verifyCategoryNameWasPrinted("Twos")
 	}
 
 	"start a turn for a given category" in new context {
-		initialiseYahtzeeWith(ones_category)
+		initialiseYahtzeeWith(OnesCategory)
 
-		verify(turn) start(ones_category)
+		verify(turn) start(OnesCategory)
 	}
 
 	"print score" in new context {
-		given(turn.start(ones_category)) willReturn Score(ones_category, 4)
+		given(turn.start(OnesCategory)) willReturn Score(OnesCategory, 4)
 
-		initialiseYahtzeeWith(ones_category)
+		initialiseYahtzeeWith(OnesCategory)
 
 		verify(scoreCard) print console
 	}
@@ -35,10 +35,8 @@ class YahtzeeShould extends UnitSpec {
 		val scoreCard = mock[ScoreCard]
 		val console = mock[Console]
 		val turn = mock[Turn]
-		val ones_category = new Category("Ones")
-		val twos_category = new Category("Twos")
 
-		var yahtzee: Yahtzee = new Yahtzee(ScoreCard(List(ones_category)), turn, console)
+		var yahtzee: Yahtzee = new Yahtzee(ScoreCard(List(OnesCategory)), turn, console)
 
 		def initialiseYahtzeeWith(category: Category) = {
 			given(scoreCard.categories) willReturn List(category)

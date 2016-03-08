@@ -11,7 +11,6 @@ class TurnShould extends UnitSpec {
 
 	trait context {
 		val dice = mock[Dice]
-		val category = Category("Ones")
 		val console = mock[Console]
 		val turn = new Turn(dice, console)
 	}
@@ -25,7 +24,7 @@ class TurnShould extends UnitSpec {
 		given(console read "[2] Dice to re-run: ") willReturn "D2 D4"
 		given(dice roll "D2 D4") willReturn "D1:1 D2:1 D3:1 D4:5 D5:1"
 
-		val score = turn start(category)
+		val score = turn start(OnesCategory)
 
 		val inOrder = Mockito.inOrder(console)
 		inOrder.verify(console) printLine "Dice: D1:2 D2:4 D3:1 D4:6 D5:1"
@@ -34,7 +33,7 @@ class TurnShould extends UnitSpec {
 		inOrder.verify(console) read "[2] Dice to re-run: "
 		inOrder.verify(console) printLine "Dice: D1:1 D2:1 D3:1 D4:5 D5:1"
 
-		score should be(Score(category, 4))
+		score should be(Score(OnesCategory, 4))
 	}
 
 }

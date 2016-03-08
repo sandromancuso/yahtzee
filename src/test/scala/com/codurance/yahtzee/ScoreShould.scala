@@ -10,7 +10,7 @@ class ScoreShould extends UnitSpec {
 
 	"print the score" in {
 		val console = mock[Console]
-		val score = Score(Category("Ones"), 5)
+		val score = Score(OnesCategory, 5)
 
 		score print(console)
 
