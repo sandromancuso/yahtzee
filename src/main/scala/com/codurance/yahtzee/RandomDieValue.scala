@@ -6,6 +6,6 @@ class RandomDieValue {
 
 	val DIE_SIDES = 6
 
-	def next(): Int = Random.nextInt(DIE_SIDES)
+	def next(): Int = Random.nextInt(DIE_SIDES - 1) + 1
 
 }
