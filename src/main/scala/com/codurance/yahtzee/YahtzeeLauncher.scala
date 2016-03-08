@@ -1,6 +1,6 @@
 package com.codurance.yahtzee
 
-object YatzeeLauncher extends App {
+object YahtzeeLauncher extends App {
 
 	val console = new Console
 	val category = Category("Ones")
