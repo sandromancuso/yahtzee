@@ -4,6 +4,7 @@ import com.codurance.UnitSpec
 import org.junit.runner.RunWith
 import org.mockito.BDDMockito.given
 import org.mockito.Mockito
+import org.mockito.Mockito.{never, times, verify}
 import org.scalatest.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
@@ -35,5 +36,39 @@ class TurnShould extends UnitSpec {
 
 		score should be(Score(OnesCategory, 4))
 	}
+
+	"End turn when user hits enter without inputing anything in the first re-run" in new context {
+		given(dice rollAll()) willReturn "D1:2 D2:4 D3:1 D4:6 D5:1"
+
+		given(console read "[1] Dice to re-run: ") willReturn ""
+
+		val score = turn start(OnesCategory)
+
+		verify(console, times(1)) printLine "Dice: D1:2 D2:4 D3:1 D4:6 D5:1"
+		verify(console) read "[1] Dice to re-run: "
+		verify(console, never()) read "[2] Dice to re-run: "
+
+		score should be(Score(OnesCategory, 2))
+	}
+
+	"End turn when user hits enter without inputing anything in the second re-run" in new context {
+		given(dice rollAll()) willReturn "D1:2 D2:4 D3:1 D4:6 D5:1"
+
+		given(console read "[1] Dice to re-run: ") willReturn "D1 D2 D4"
+		given(dice roll "D1 D2 D4") willReturn "D1:1 D2:5 D3:1 D4:2 D5:1"
+
+		given(console read "[2] Dice to re-run: ") willReturn ""
+
+		val score = turn start(OnesCategory)
+
+		val inOrder = Mockito.inOrder(console)
+		inOrder.verify(console) printLine "Dice: D1:2 D2:4 D3:1 D4:6 D5:1"
+		inOrder.verify(console) read "[1] Dice to re-run: "
+		inOrder.verify(console) printLine "Dice: D1:1 D2:5 D3:1 D4:2 D5:1"
+		inOrder.verify(console) read "[2] Dice to re-run: "
+
+		score should be(Score(OnesCategory, 3))
+	}
+
 
 }
