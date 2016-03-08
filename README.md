@@ -131,4 +131,4 @@ Multi-player. Allow the game to interact with more than one player. Players shou
 
 ## Fourth round - new requirements
 
-Implement all other missing [Yahtezee](https://en.wikipedia.org/wiki/Yahtzee) categories. 
+Implement all other missing [Yahtzee](https://en.wikipedia.org/wiki/Yahtzee) categories. 
