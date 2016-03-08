@@ -14,8 +14,8 @@ class ScoreShould extends UnitSpec {
 
 		score print(console)
 
-		verify(console) printLine("Yahtzee score")
-		verify(console) printLine("Ones: 5")
+		verify(console) printLine "Yahtzee score"
+		verify(console) printLine "Ones: 5"
 	}
 
 }
