@@ -16,8 +16,7 @@ class Dice(randomDieValue: RandomDieValue) {
 	def roll(diceString: String): String = {
 		if (dieList.isEmpty) dieList = DieNumber rollAll()
 		val reRollDieNumbers = diceString.split(" ").map(s => s.split("")).map(_(1).toInt)
-		val newDieList = dieList.map(d => if (reRollDieNumbers.contains(d.number())) Die(valueOf(d.number())) else d)
-		dieList = newDieList
+		dieList = dieList.map(d => if (reRollDieNumbers.contains(d.number())) Die(valueOf(d.number())) else d)
 		generateRollStringFor(dieList)
 	}
 

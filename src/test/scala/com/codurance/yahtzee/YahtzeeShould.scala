@@ -39,11 +39,11 @@ class YahtzeeShould extends UnitSpec {
 		val ones_category = new Category("Ones")
 		val twos_category = new Category("Twos")
 
-		var yahtzee: Yahtzee = new Yahtzee(ones_category, turn, console)
+		var yahtzee: Yahtzee = new Yahtzee(List(ones_category), turn, console)
 
 		def initialiseYahtzeeWith(category: Category) = {
 			given(turn start(category)) willReturn(score)
-			yahtzee = new Yahtzee(category, turn, console)
+			yahtzee = new Yahtzee(List(category), turn, console)
 
 			yahtzee startGame()
 		}

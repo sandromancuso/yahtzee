@@ -7,7 +7,7 @@ object YahtzeeLauncher extends App {
 	val randomDiceValue = new RandomDieValue
 	val dice = new Dice(randomDiceValue)
 	val turn = new Turn(dice, console)
-	val yahtzee = new Yahtzee(category, turn, console)
+	val yahtzee = new Yahtzee(List(category), turn, console)
 
 	yahtzee startGame()
 }
