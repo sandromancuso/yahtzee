@@ -7,7 +7,9 @@ class DiceShould extends UnitSpec {
 
 	"should return the dice roll representation" in {
 		val randomDieValue = mock[RandomDieValue]
-		given(randomDieValue next()) willReturn(2, 4, 1, 6, 1, 1, 6, 2, 5, 3)
+		given(randomDieValue next()) willReturn(
+				2, 4, 1, 6, 1,
+				1, 6, 2, 5, 3)
 
 		val dice = new Dice(randomDieValue)
 
