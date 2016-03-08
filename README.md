@@ -14,9 +14,11 @@ The player will play categories in turn.
  
 	> Category: Ones
 	> Dices: D1:2 D2:4 D3:1 D4:6 D5:1
-	> Dices to re-run: D1 D2 D4
+	> Dices to re-run: 
+    $ D1 D2 D4
 	> Dices: D1:1 D2:5 D3:1 D4:2 D5:1 
-	> Dices to re-run: D2 D4
+	> Dices to re-run: 
+    $ D2 D4
 	> Dices: D1:1 D2:1 D3:1 D4:5 D5:1
 	> Category Ones score: 4
  	 
@@ -41,9 +43,11 @@ The player should roll the dice (up to three times) and only choose the most sui
 after finishing each turn. 
 
 	> Dices: D1:2 D2:4 D3:1 D4:6 D5:1
-	> Dices to re-run: D1 D2 D4
+	> Dices to re-run: 
+    $ D1 D2 D4
 	> Dices: D1:1 D2:5 D3:1 D4:2 D5:1 
-	> Dices to re-run: D2 D4
+	> Dices to re-run: 
+    $ D2 D4
 	> Dices: D1:1 D2:1 D3:1 D4:5 D5:1
 
 	> Available categories:
@@ -54,9 +58,11 @@ after finishing each turn.
 	> ....
  	
 	> Dices: D1:2 D2:4 D3:2 D4:1 D5:3
-	> Dices to re-run: D1 D2 D4
+	> Dices to re-run: 
+    $ D1 D2 D4
 	> Dices: D1:1 D2:5 D3:2 D4:2 D5:3 
-	> Dices to re-run: D1 D2 D5
+	> Dices to re-run: 
+    $ D1 D2 D5
 	> Dices: D1:2 D2:4 D3:2 D4:2 D5:5
 
 	> Available categories:
@@ -77,9 +83,11 @@ after finishing each turn.
 Multi-player. Allow the game to interact with more than one player. Players should play in turns. 
 
 	> [player 1] Dices: D1:2 D2:4 D3:1 D4:6 D5:1
-	> [player 1] Dices to re-run: D1 D2 D4
+	> [player 1] Dices to re-run: 
+    $ D1 D2 D4
 	> [player 1] Dices: D1:1 D2:5 D3:1 D4:2 D5:1 
-	> [player 1] Dices to re-run: D2 D4
+	> [player 1] Dices to re-run: 
+    $ D2 D4
 	> [player 1] Dices: D1:1 D2:1 D3:1 D4:5 D5:1
 	
 	> [player 1] Available categories:
@@ -90,13 +98,15 @@ Multi-player. Allow the game to interact with more than one player. Players shou
 	> ....
 	
 	> [player 2] Dices: D1:2 D2:4 D3:2 D4:1 D5:3
-	> [player 2] Dices to re-run: D1 D2 D4
+	> [player 2] Dices to re-run: 
+    $ D1 D2 D4
 	> [player 2] Dices: D1:1 D2:5 D3:2 D4:2 D5:3 
-	> [player 2] Dices to re-run: D1 D2 D5
+	> [player 2] Dices to re-run: 
+    $ D1 D2 D5
 	> [player 2] Dices: D1:2 D2:4 D3:2 D4:2 D5:5
 	
 	> [player 2] Available categories:
-	> [player 2 [1] Ones
+	> [player 2] [1] Ones
 	> [player 2] [2] Twos
 	> [player 2] [3] Threes
 	> [player 2] Category to add dice to: 2 
