@@ -2,13 +2,13 @@ package com.codurance.yahtzee
 
 class Turn(dice: Dice, console: Console) {
 
-	def start(category: Category): Score = {
+	def start(category: Category): CategoryScore = {
 		var rollResult = dice rollAll()
 		console printLine s"Dice: $rollResult"
 
 		rollResult = firstReRoll(rollResult)
 
-		Score(category, category.pointsFor(rollResult))
+		CategoryScore(category, category.pointsFor(rollResult))
 	}
 
 	private def firstReRoll(currentResult: String): String = {

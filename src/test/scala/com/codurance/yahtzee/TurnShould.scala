@@ -34,7 +34,7 @@ class TurnShould extends UnitSpec {
 		inOrder.verify(console) read "[2] Dice to re-run: "
 		inOrder.verify(console) printLine "Dice: D1:1 D2:1 D3:1 D4:5 D5:1"
 
-		score should be(Score(OnesCategory, 4))
+		score should be(CategoryScore(OnesCategory, 4))
 	}
 
 	"End turn when user hits enter without inputing anything in the first re-run" in new context {
@@ -48,7 +48,7 @@ class TurnShould extends UnitSpec {
 		verify(console) read "[1] Dice to re-run: "
 		verify(console, never()) read "[2] Dice to re-run: "
 
-		score should be(Score(OnesCategory, 2))
+		score should be(CategoryScore(OnesCategory, 2))
 	}
 
 	"End turn when user hits enter without inputing anything in the second re-run" in new context {
@@ -67,7 +67,7 @@ class TurnShould extends UnitSpec {
 		inOrder.verify(console) printLine "Dice: D1:1 D2:5 D3:1 D4:2 D5:1"
 		inOrder.verify(console) read "[2] Dice to re-run: "
 
-		score should be(Score(OnesCategory, 3))
+		score should be(CategoryScore(OnesCategory, 3))
 	}
 
 

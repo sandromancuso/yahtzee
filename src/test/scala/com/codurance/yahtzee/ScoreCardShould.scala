@@ -9,7 +9,7 @@ class ScoreCardShould extends UnitSpec {
 		val console = mock[Console]
 		val scoreCard = ScoreCard(List(OnesCategory, TwosCategory))
 
-		scoreCard print console
+		scoreCard printFinalScoreTo console
 
 		val inOrder = Mockito.inOrder(console)
 		inOrder.verify(console) printLine "Yahtzee score"
@@ -22,10 +22,10 @@ class ScoreCardShould extends UnitSpec {
 		val console = mock[Console]
 		val scoreCard = ScoreCard(List(OnesCategory, TwosCategory))
 
-		scoreCard setScore(Score(OnesCategory, 4))
-		scoreCard setScore(Score(TwosCategory, 6))
+		scoreCard set(CategoryScore(OnesCategory, 4))
+		scoreCard set(CategoryScore(TwosCategory, 6))
 
-		scoreCard print console
+		scoreCard printFinalScoreTo console
 
 		val inOrder = Mockito.inOrder(console)
 		inOrder.verify(console) printLine "Yahtzee score"

@@ -9,26 +9,26 @@ import org.scalatest.junit.JUnitRunner
 @RunWith(classOf[JUnitRunner])
 class YahtzeeShould extends UnitSpec {
 
-	"print name of the category passed as parameter" in new context {
-		initialiseYahtzeeWith(OnesCategory)
-		verifyCategoryNameWasPrinted("Ones")
+	"print name of all categories" in new context {
+		runYahtzeeWith(OnesCategory, TwosCategory)
 
-		initialiseYahtzeeWith(TwosCategory)
+		verifyCategoryNameWasPrinted("Ones")
 		verifyCategoryNameWasPrinted("Twos")
 	}
 
-	"start a turn for a given category" in new context {
-		initialiseYahtzeeWith(OnesCategory)
+	"start turns for each category" in new context {
+		runYahtzeeWith(OnesCategory, TwosCategory)
 
-		verify(turn) start(OnesCategory)
+		verify(turn) start OnesCategory
+		verify(turn) start TwosCategory
 	}
 
-	"print score" in new context {
-		given(turn.start(OnesCategory)) willReturn Score(OnesCategory, 4)
+	"print final score" in new context {
+		given(turn.start(OnesCategory)) willReturn CategoryScore(OnesCategory, 4)
 
-		initialiseYahtzeeWith(OnesCategory)
+		runYahtzeeWith(OnesCategory)
 
-		verify(scoreCard) print console
+		verify(scoreCard) printFinalScoreTo console
 	}
 
 	trait context {
@@ -38,8 +38,8 @@ class YahtzeeShould extends UnitSpec {
 
 		var yahtzee: Yahtzee = new Yahtzee(ScoreCard(List(OnesCategory)), turn, console)
 
-		def initialiseYahtzeeWith(category: Category) = {
-			given(scoreCard.categories) willReturn List(category)
+		def runYahtzeeWith(categories: Category*) = {
+			given(scoreCard.categories) willReturn categories.toList
 			yahtzee = new Yahtzee(scoreCard, turn, console)
 
 			yahtzee startGame()
