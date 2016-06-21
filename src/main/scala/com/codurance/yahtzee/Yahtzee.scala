@@ -7,10 +7,10 @@ class Yahtzee(scoreCard: ScoreCard,
 	def startGame(): Unit = {
 		scoreCard.categories.foreach(category => {
 			printCategoryName(category)
-			val categoryScore = turn.start(category)
-			scoreCard.set(categoryScore)
+			val categoryScore = turn start category
+			scoreCard set categoryScore
 		})
-		scoreCard.printFinalScoreTo(console)
+		scoreCard printFinalScoreTo console
 	}
 
 	private def printCategoryName(category: Category): Unit = {
